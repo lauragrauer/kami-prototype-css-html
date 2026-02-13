@@ -161,10 +161,12 @@
     const widths = ['10%', '30%', '50%', '70%', '85%', '100%'];
     let step = 0;
 
+    /* hide gif and reveal order after 5 seconds */
     setTimeout(function() {
       gif_area.className = 'gif hidden';
       order_area.className = 'order visible';
 
+      /* start the progress bar after a short delay */
       setTimeout(function() {
         let timer = setInterval(function() {
           step = step + 1;
