@@ -8,31 +8,61 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="shell">
+  <main>
     <div class="page">
       <h1>Join!</h1>
 
-      <div>
-        <a href="signup-filled.html" class="field placeholder clickable">Phone Number*</a>
-      </div>
-      <div class="row">
+      <div class="form-fields">
         <div>
-          <a href="signup-filled.html" class="field placeholder clickable">First Name*</a>
+          <input type="tel" class="field" id="phone" placeholder="Phone Number*">
+        </div>
+        <div class="row">
+          <div>
+            <input type="text" class="field" id="first" placeholder="First Name*">
+          </div>
+          <div>
+            <input type="text" class="field" id="last" placeholder="Last Initial*">
+          </div>
         </div>
         <div>
-          <a href="signup-filled.html" class="field placeholder clickable">Last Initial*</a>
+          <input type="password" class="field" id="pass" placeholder="Password*">
         </div>
-      </div>
-      <div>
-        <a href="signup-filled.html" class="field placeholder clickable">Password*</a>
-      </div>
-      <div>
-        <a href="signup-filled.html" class="field placeholder clickable">Confirm Password*</a>
+        <div>
+          <input type="password" class="field" id="confirm" placeholder="Confirm Password*">
+        </div>
       </div>
 
-      <a href="#" class="btn">SIGN UP</a>
+      <a href="payment.html" class="btn btn--outline" id="signup-btn">SIGN UP</a>
     </div>
+  </main>
 
-  </div>
+  <script>
+    const phone = document.getElementById('phone');
+    const first = document.getElementById('first');
+    const last = document.getElementById('last');
+    const pass = document.getElementById('pass');
+    const confirm_pass = document.getElementById('confirm');
+    const signup_btn = document.getElementById('signup-btn');
+
+    function check_fields() {
+      if (phone.value !== '' && first.value !== '' && last.value !== '' && pass.value !== '' && confirm_pass.value !== '') {
+        signup_btn.className = 'btn btn--outline active';
+      } else {
+        signup_btn.className = 'btn btn--outline';
+      }
+    }
+
+    phone.addEventListener('keyup', check_fields);
+    first.addEventListener('keyup', check_fields);
+    last.addEventListener('keyup', check_fields);
+    pass.addEventListener('keyup', check_fields);
+    confirm_pass.addEventListener('keyup', check_fields);
+
+    signup_btn.addEventListener('click', function(event) {
+      if (phone.value === '' || first.value === '' || last.value === '' || pass.value === '' || confirm_pass.value === '') {
+        event.preventDefault();
+      }
+    });
+  </script>
 </body>
 </html>

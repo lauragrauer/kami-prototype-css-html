@@ -8,13 +8,13 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="shell">
-    <div class="header"></div>
+  <main>
+    <header></header>
     <div>
       <img src="images/squiggle-top-bar.png" alt="">
     </div>
     <div class="page">
-      <a href="bag.html" class="btn">&#10094; GO BACK</a>
+      <a href="bag.html" class="btn btn--back">&#10094; GO BACK</a>
       <div>
         <div class="option">
           <span class="bold">Pick-Up for</span>
@@ -24,58 +24,138 @@
           <span class="bold">Pick-Up at</span>
           <span class="badge">11:20am ▼</span>
         </div>
+
         <h3 class="bold">Payment Method</h3>
-        <div class="col pay-methods">
-          <a href="payment-cf-n0.html#methods" class="card clickable">
-            <div class="row"><div class="radio active"></div><span class="bold">Card</span></div>
-            <div class="col">
-              <div class="field placeholder">Card Number</div>
-              <div class="row">
-                <div class="field placeholder">Exp Date</div>
-                <div class="field placeholder">CVV</div>
-              </div>
-              <div class="row">
-                <div class="field placeholder">Name</div>
-                <div class="field placeholder">ZIP</div>
-              </div>
-            </div>
-          </a>
-          <a href="payment-ap-n0.html" class="pill row clickable"><div class="radio"></div><span class="bold">Apple Pay</span></a>
-          <a href="payment-vm-n0.html" class="pill row clickable"><div class="radio"></div><span class="bold">Venmo</span></a>
-          <a href="payment-zl-n0.html" class="pill row clickable"><div class="radio"></div><span class="bold">Zelle</span></a>
+        <div class="col pay-methods" id="methods">
+          <div class="pill pill-method"><div class="radio"></div><span class="bold">Card</span></div>
+          <div class="pill pill-method clickable" id="pay-ap"><div class="radio"></div><span class="bold">Apple Pay</span></div>
+          <div class="pill pill-method clickable" id="pay-vm"><div class="radio"></div><span class="bold">Venmo</span></div>
+          <div class="pill pill-method clickable" id="pay-zl"><div class="radio"></div><span class="bold">Zelle</span></div>
         </div>
+
         <hr>
-        <div class="section">
+
+        <section>
           <h3>Add Utensils?</h3>
-          <div class="option">
-            <span class="check"></span>
+          <div class="option clickable" id="fork-option">
+            <span class="check">✓</span>
             <span class="bold">Fork</span>
           </div>
-          <div class="option">
-            <span class="check"></span>
+          <div class="option clickable" id="chop-option">
+            <span class="check">✓</span>
             <span class="bold">Chopsticks</span>
           </div>
-        </div>
-        <div class="section">
+        </section>
+
+        <section>
           <h3>Tip?</h3>
           <div class="row">
-            <div class="pill">$1</div>
-            <a href="#" class="pill clickable">$2</a>
-            <div class="pill">$3</div>
-            <div class="pill">No Tip</div>
+            <div class="pill pill-tip">$1</div>
+            <div class="pill pill-tip clickable" id="tip-2">$2</div>
+            <div class="pill pill-tip">$3</div>
+            <div class="pill pill-tip">No Tip</div>
           </div>
-        </div>
-        <div class="section total">
+        </section>
+
+        <section class="summary" id="totals">
           <div class="row"><span>Product Total</span><span>$14.00</span></div>
           <div class="row"><span>3.95% Credit Charge</span><span>$0.55</span></div>
+          <div class="row" id="tip-row" style="display: none;"><span>Tip</span><span>$2.00</span></div>
+          <div class="row total"><span>Total (2 items)</span><span id="total-amount">$14.55</span></div>
+        </section>
 
-          <div class="row total"><span>Total (2 items)</span><span>$14.55</span></div>
-        </div>
         <hr>
-        <div class="btn disabled">Pay</div>
+        <div class="btn disabled" id="pay-btn">Pay</div>
       </div>
     </div>
+  </main>
 
-  </div>
+  <script>
+// PAYMENTS
+    const pay_ap = document.getElementById('pay-ap');
+    const pay_vm = document.getElementById('pay-vm');
+    const pay_zl = document.getElementById('pay-zl');
+    const pay_btn = document.getElementById('pay-btn');
+    let selected_method = '';
+
+    function select_method(method) {
+      pay_ap.className = 'pill pill-method clickable';
+      pay_vm.className = 'pill pill-method clickable';
+      pay_zl.className = 'pill pill-method clickable';
+
+      pay_ap.querySelector('.radio').className = 'radio';
+      pay_vm.querySelector('.radio').className = 'radio';
+      pay_zl.querySelector('.radio').className = 'radio';
+
+      if (method === selected_method) {
+        selected_method = '';
+        pay_btn.className = 'btn disabled';
+        return;
+      }
+
+      selected_method = method;
+
+      if (method === 'ap') {
+        pay_ap.className = 'pill pill-method clickable active';
+        pay_ap.querySelector('.radio').className = 'radio active';
+      } else if (method === 'vm') {
+        pay_vm.className = 'pill pill-method clickable active';
+        pay_vm.querySelector('.radio').className = 'radio active';
+      } else if (method === 'zl') {
+        pay_zl.className = 'pill pill-method clickable active';
+        pay_zl.querySelector('.radio').className = 'radio active';
+      }
+
+      pay_btn.className = 'btn clickable';
+    }
+
+    pay_ap.addEventListener('click', function() { select_method('ap'); });
+    pay_vm.addEventListener('click', function() { select_method('vm'); });
+    pay_zl.addEventListener('click', function() { select_method('zl'); });
+
+    pay_btn.addEventListener('click', function() {
+      if (selected_method !== '') {
+        window.location.href = 'payment-loading.html';
+      }
+    });
+
+// CHOPSTICK FORK
+    const fork_option = document.getElementById('fork-option');
+    const chop_option = document.getElementById('chop-option');
+    let fork_selected = false;
+    let chop_selected = false;
+
+    fork_option.addEventListener('click', function() {
+      const check = fork_option.querySelector('.check');
+      check.className = fork_selected ? 'check' : 'check active';
+      fork_selected = !fork_selected;
+    });
+
+    chop_option.addEventListener('click', function() {
+      const check = chop_option.querySelector('.check');
+      check.className = chop_selected ? 'check' : 'check active';
+      chop_selected = !chop_selected;
+    });
+
+// TIP $2
+    const tip_btn = document.getElementById('tip-2');
+    const tip_row = document.getElementById('tip-row');
+    const total_amount = document.getElementById('total-amount');
+    let tip_selected = false;
+
+    tip_btn.addEventListener('click', function() {
+      if (tip_selected) {
+        tip_btn.className = 'pill pill-tip clickable';
+        tip_row.style.display = 'none';
+        total_amount.textContent = '$14.55';
+        tip_selected = false;
+      } else {
+        tip_btn.className = 'pill pill-tip clickable active';
+        tip_row.style.display = 'flex';
+        total_amount.textContent = '$16.55';
+        tip_selected = true;
+      }
+    });
+  </script>
 </body>
 </html>

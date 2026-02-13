@@ -8,19 +8,19 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="shell">
-    <div class="header">
-      <div class="row">
+  <main>
+    <header>
+      <div class="row-between">
         <div class="row">
           <img src="images/kami-logo.png" alt="Kami Logo">
           <span>KAMi</span>
         </div>
-        <div class="row">
+        <div class="row header-icons">
           <img src="images/bell-icon.png" alt="Notifications">
           <img src="images/profile-icon.png" alt="Profile">
         </div>
       </div>
-    </div>
+    </header>
     <div>
       <img src="images/squiggle-top-bar.png" alt="">
     </div>
@@ -29,27 +29,22 @@
       <h1><span class="korean">안녕,</span> Vicky!</h1>
     </div>
 
-    <div style="min-height: 655px;">
-      <div class="gif" style="max-height: 655px;">
+    <div>
+      <div class="gif" id="gif-area">
         <img src="images/no-loop-chopsticks.gif" alt="Order confirmed animation">
       </div>
 
-      <div class="order">
+      <div class="order" id="order-area">
         <div class="progress">
           <h3>Order #118's Progress</h3>
-          <div class="bar"><div></div></div>
+          <div class="bar"><div id="progress-bar"></div></div>
           <div class="status">
-            <p>6 minutes until your order is ready!</p>
-            <p>5 minutes until your order is ready!</p>
-            <p>4 minutes until your order is ready!</p>
-            <p>3 minutes until your order is ready!</p>
-            <p>1 minute until your order is ready!</p>
-            <p>Your order is ready!</p>
+            <p id="status-text" class="visible">6 minutes until your order is ready!</p>
           </div>
         </div>
 
         <div class="receipt">
-          <p>📍 TAP TO VIEW LOCATION</p>
+          <p class="receipt-link">📍 TAP TO VIEW LOCATION</p>
           <div class="thanks">
             <h2>Thank You For Ordering!</h2>
             <p>We are glad you decided to choose the Kami Food Truck! We put genuine care to every part of our meals.</p>
@@ -78,7 +73,7 @@
             <span class="muted">10/31/2025 2:04PM</span>
           </div>
 
-          <div class="totals">
+          <div class="summary">
             <div class="row"><span>Product Total</span><span>$14.00</span></div>
             <div class="row"><span>3.95% Credit Charge</span><span>$0.55</span></div>
             <div class="row"><span>Tip</span><span>$2.00</span></div>
@@ -94,28 +89,28 @@
     <div class="carousel">
       <div class="slide">
         <img src="images/tteokbokki-ellipse.png" alt="Tteokbokki">
-        <div class="row"><div><p class="muted">떡볶이</p><p class="bold">Tteokbokki</p></div><span class="muted">$11</span></div>
-        <div class="row"><span class="pill">Customize</span><span class="pill">Add to Bag</span></div>
+        <div class="slide-info"><div><p class="muted">떡볶이</p><p class="bold">Tteokbokki</p></div><span class="muted">$11</span></div>
+        <div class="slide-actions"><span class="pill pill-sm pill-nav">Customize</span><span class="pill pill-sm pill-light">Add to Bag</span></div>
       </div>
       <div class="slide">
         <img src="images/bibimbap-ellipse.png" alt="Bibimbap">
-        <div class="row"><div><p class="muted">비빔밥</p><p class="bold">Bibimbap</p></div><span class="muted">$11</span></div>
-        <div class="row"><span class="pill">Customize</span><span class="pill">Add to Bag</span></div>
+        <div class="slide-info"><div><p class="muted">비빔밥</p><p class="bold">Bibimbap</p></div><span class="muted">$11</span></div>
+        <div class="slide-actions"><span class="pill pill-sm pill-nav">Customize</span><span class="pill pill-sm pill-light">Add to Bag</span></div>
       </div>
       <div class="slide">
         <img src="images/bulgogi-ellipse.png" alt="Bulgogi">
-        <div class="row"><div><p class="muted">불고기</p><p class="bold">Bulgogi</p></div><span class="muted">$12</span></div>
-        <div class="row"><span class="pill">Customize</span><span class="pill">Add to Bag</span></div>
+        <div class="slide-info"><div><p class="muted">불고기</p><p class="bold">Bulgogi</p></div><span class="muted">$12</span></div>
+        <div class="slide-actions"><span class="pill pill-sm pill-nav">Customize</span><span class="pill pill-sm pill-light">Add to Bag</span></div>
       </div>
       <div class="slide">
         <img src="images/kimchi-fried-rice-ellipse.png" alt="Kimchi Fried Rice">
-        <div class="row"><div><p class="muted">김치볶음밥</p><p class="bold">Kimchi Fried Rice</p></div><span class="muted">$11</span></div>
-        <div class="row"><span class="pill">Customize</span><span class="pill">Add to Bag</span></div>
+        <div class="slide-info"><div><p class="muted">김치볶음밥</p><p class="bold">Kimchi Fried Rice</p></div><span class="muted">$11</span></div>
+        <div class="slide-actions"><span class="pill pill-sm pill-nav">Customize</span><span class="pill pill-sm pill-light">Add to Bag</span></div>
       </div>
       <div class="slide">
         <img src="images/mandu-ellipse.png" alt="Mandu">
-        <div class="row"><div><p class="muted">만두</p><p class="bold">Mandu</p></div><span class="muted">$5</span></div>
-        <div class="row"><span class="pill">Customize</span><span class="pill">Add to Bag</span></div>
+        <div class="slide-info"><div><p class="muted">만두</p><p class="bold">Mandu</p></div><span class="muted">$5</span></div>
+        <div class="slide-actions"><span class="pill pill-sm pill-nav">Customize</span><span class="pill pill-sm pill-light">Add to Bag</span></div>
       </div>
     </div>
 
@@ -141,11 +136,48 @@
       </div>
     </div>
     <br>
-    <nav class="nav">
+    <nav>
       <div><img src="images/navigation-bar-menu.png" alt="Menu"><span>Menu</span></div>
       <div class="active"><img src="images/navigation-bar-home.png" alt="Home"><span>Home</span></div>
       <div><img src="images/navigation-bar-bag.png" alt="Bag"><span>Bag</span></div>
     </nav>
-  </div>
+  </main>
+
+  <script>
+    const gif_area = document.getElementById('gif-area');
+    const order_area = document.getElementById('order-area');
+    const progress_bar = document.getElementById('progress-bar');
+    const status_text = document.getElementById('status-text');
+
+    const messages = [
+      '6 minutes until your order is ready!',
+      '5 minutes until your order is ready!',
+      '4 minutes until your order is ready!',
+      '3 minutes until your order is ready!',
+      '1 minute until your order is ready!',
+      'Your order is ready!'
+    ];
+
+    const widths = ['10%', '30%', '50%', '70%', '85%', '100%'];
+    let step = 0;
+
+    setTimeout(function() {
+      gif_area.className = 'gif hidden';
+      order_area.className = 'order visible';
+
+      setTimeout(function() {
+        let timer = setInterval(function() {
+          step = step + 1;
+          if (step < messages.length) {
+            progress_bar.style.width = widths[step];
+            status_text.textContent = messages[step];
+          }
+          if (step >= messages.length - 1) {
+            clearInterval(timer);
+          }
+        }, 1500);
+      }, 500);
+    }, 5000);
+  </script>
 </body>
 </html>

@@ -8,9 +8,9 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="shell">
+  <main>
     <div>
-      <div class="header"></div>
+      <header></header>
       <div>
         <img src="images/squiggle-top-bar.png" alt="">
       </div>
@@ -18,12 +18,12 @@
       <h2 class="bag-title">BAG</h2>
 
       <div class="bag-items">
-        <div class="row">
+        <div class="row bag-row">
           <img src="images/tteokbokki-ellipse.png" alt="Tteokbokki">
           <div class="bag-info">
             <p class="bold">Tteokbokki</p>
             <p class="muted italic">+ Ramen $1</p>
-            <div class="row">
+            <div class="row bag-actions">
               <span>edit ✏️</span>
               <span>🗑️</span>
               <div class="qty small">
@@ -36,11 +36,11 @@
           <span class="bold">$10</span>
         </div>
 
-        <div class="row">
+        <div class="row bag-row">
           <img src="images/rice-square.png" alt="Small Rice">
           <div class="bag-info">
             <p class="bold">Small Rice <span class="bold">[5oz]</span></p>
-            <div class="row">
+            <div class="row bag-actions">
               <span>edit ✏️</span>
               <span>🗑️</span>
               <div class="qty small">
@@ -54,14 +54,14 @@
         </div>
       </div>
 
-      <div class="row bold total">
+      <div class="row total bag-total">
         <span>Total (2 items)</span>
         <span>$14.00</span>
       </div>
 
       <div class="bag-extras">
         <h3>Anything Else?</h3>
-        <div class="row">
+        <div class="row scroll-row">
           <div class="thumb">
             <img src="images/corndog-square.png" alt="Corndog">
             <span>+</span>
@@ -77,10 +77,10 @@
         </div>
       </div>
 <br><br>
-      <a href="signup.html" class="btn">Continue</a>
+      <a href="signup.html" class="btn bag-continue">Continue</a>
     </div>
 
-    <nav class="nav">
+    <nav>
       <div>
         <img src="images/navigation-bar-menu.png" alt="Menu">
         <span>Menu</span>
@@ -94,6 +94,6 @@
         <span>Bag</span>
       </div>
     </nav>
-  </div>
+  </main>
 </body>
 </html>
