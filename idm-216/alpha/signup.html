@@ -11,59 +11,31 @@
 <body><main>
 <a href="customize.html" class="btn btn--back">&#10094;</a>
 <div class="page">
-<h1>Join!</h1>
 
-<div class="form-fields">
+
+<form class="form-fields" action="payment.html" method="get">
+<h1>Join!</h1>
 <div>
-<input type="tel" class="field" id="phone" placeholder="Phone Number*">
+<input type="tel" class="field" id="phone" placeholder="Phone Number*" required>
 </div>
 <div class="row">
 <div>
-<input type="text" class="field" id="first" placeholder="First Name*">
+<input type="text" class="field" id="first" placeholder="First Name*" required>
 </div>
 <div>
-<input type="text" class="field" id="last" placeholder="Last Initial*">
+<input type="text" class="field" id="last" placeholder="Last Initial*" required>
 </div>
 </div>
 <div>
-<input type="password" class="field" id="pass" placeholder="Password*">
+<input type="password" class="field" id="pass" placeholder="Password*" required>
 </div>
 <div>
-<input type="password" class="field" id="confirm" placeholder="Confirm Password*">
-</div>
+<input type="password" class="field" id="confirm" placeholder="Confirm Password*" required>
 </div>
 
-<a href="payment.html" class="btn btn--outline" id="signup-btn">SIGN UP</a>
+<button type="submit" class="btn btn--outline" id="signup-btn">SIGN UP</button>
+</form>
 </div>
 </main>
-
-<script>
-const phone = document.getElementById('phone');
-const first = document.getElementById('first');
-const last = document.getElementById('last');
-const pass = document.getElementById('pass');
-const confirm_pass = document.getElementById('confirm');
-const signup_btn = document.getElementById('signup-btn');
-
-function check_fields() {
-if (phone.value !== '' && first.value !== '' && last.value !== '' && pass.value !== '' && confirm_pass.value !== '') {
-signup_btn.className = 'btn btn--outline active';
-} else {
-signup_btn.className = 'btn btn--outline';
-}
-}
-
-phone.addEventListener('keyup', check_fields);
-first.addEventListener('keyup', check_fields);
-last.addEventListener('keyup', check_fields);
-pass.addEventListener('keyup', check_fields);
-confirm_pass.addEventListener('keyup', check_fields);
-
-signup_btn.addEventListener('click', function(event) {
-if (phone.value === '' || first.value === '' || last.value === '' || pass.value === '' || confirm_pass.value === '') {
-event.preventDefault();
-}
-});
-</script>
 </body>
 </html>
