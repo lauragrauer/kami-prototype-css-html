@@ -326,25 +326,17 @@ input.field:focus {
 }
 
 .btn--back {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: none;
-    margin: 1rem;
-    padding: 0;
-    background: var(--white);
+    gap: 0.5rem;
+    width: auto;
+    margin: 1.5rem 0 1rem;
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--black);
+    background: transparent;
     color: var(--black);
     font-size: var(--font-sm);
     text-transform: none;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
-}
-
-.btn--back:active {
-    transform: scale(0.95);
-    opacity: 0.8;
 }
 
 .badge {
