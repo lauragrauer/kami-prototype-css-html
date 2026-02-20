@@ -11,6 +11,7 @@
     --bg-outer: #ddd3c7;
     --green: #62950F;
     --font-display: 'Black Han Sans', sans-serif;
+    --font-sm: 0.95rem;
     --w: 393px;
     --pad: 1.25rem;
     --safe-bottom: env(safe-area-inset-bottom, 0px);
@@ -48,7 +49,6 @@ input, button {
 
 h1, h2, h3 {
     font-family: var(--font-display);
-    font-size: 1.5rem;
     font-weight: 400;
 }
 
@@ -413,12 +413,8 @@ a.btn:active,
     border-radius: 8px;
 }
 
-.option .muted:last-child {
-    margin-left: auto;
-}
-
 /* ── Utilities ───────────────────────────────── */
-.bold { font-weight: 700; font-size: 1.1rem; }
+.bold { font-weight: 700; }
 .muted { font-size: var(--font-sm); color: var(--dk); }
 .korean { color: var(--red); font-style: italic; }
 .italic { font-style: italic; }
@@ -518,67 +514,30 @@ a.btn:active,
 }
 
 .slide {
-    flex: 0 0 180px;
+    flex: 0 0 200px;
     scroll-snap-align: center;
     text-align: center;
-    background: var(--bg);
-    border: 2px solid var(--grey);
-    border-radius: 16px;
-    padding: 1rem 0.75rem 0.85rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
-
-a.slide {
-    cursor: pointer;
-}
-
-a.slide:active {
-    transform: scale(0.97);
-    opacity: 0.9;
-}
-
 
 .slide img {
-    width: 200px;
-    height: 200px;
+    width: 210px;
+    height: 210px;
     border-radius: 50%;
     object-fit: cover;
     display: block;
-    margin: 0 auto 0.6rem;
-    border: 4px solid transparent;
-    background: 
-        linear-gradient(to bottom, #D72F19, #FEBF43) border-box;
-    position: relative;
+    margin: 0 auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 .slide-info {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    width: 100%;
-    padding: 0 0.15rem;
+    padding: 0.25rem 0.5rem 0;
 }
 
 .slide-info p {
     text-align: left;
-}
-
-.korean-label {
-    font-size: 0.85rem;
-    color: var(--red);
-    font-weight: 700;
-}
-
-.slide-price {
-    font-size: var(--font-sm);
-    color: var(--dk);
-    font-weight: 500;
-    white-space: nowrap;
 }
 
 .slide-actions {
@@ -762,7 +721,6 @@ section.summary {
 
 .scroll-row {
     overflow-x: auto;
-    align-items: flex-start;
 }
 
 .scroll-row::-webkit-scrollbar {
@@ -770,16 +728,8 @@ section.summary {
 }
 
 .thumb {
-    flex: 0 0 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.thumb-img {
     position: relative;
-    width: 100px;
+    flex: 0 0 100px;
     height: 100px;
     border-radius: 10px;
     overflow: hidden;
@@ -804,12 +754,6 @@ section.summary {
     align-items: center;
     justify-content: center;
     font-weight: 700;
-}
-
-.thumb-label {
-    font-size: .9rem;
-    font-weight: 800;
-    margin-top: 0.3rem;
 }
 
 .bag-continue {
@@ -1043,12 +987,12 @@ main:has(.preloader.payment) {
     }
 
     .slide {
-        flex: 0 0 155px;
+        flex: 0 0 170px;
     }
 
     .slide img {
-        width: 120px;
-        height: 120px;
+        width: 155px;
+        height: 155px;
     }
 
     nav div {
