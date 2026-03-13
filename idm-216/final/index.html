@@ -3,17 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta http-equiv="refresh" content="2;url=home.html">
 <link rel="stylesheet" href="css/_base.css">
 <link rel="stylesheet" href="css/_preloader.css">
 <link rel="stylesheet" href="css/_responsive.css">
+<style>
+  #overlay {
+    position: fixed;
+    inset: 0;
+    background: #F1E7DB;
+    z-index: 999;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+</style>
 </head>
 
 <body style="overflow: hidden; height: 100vh;">
 <main style="overflow: hidden; padding-bottom: 0;">
-<div class="preloader">
-<img src="images/preloader.gif" alt="Loading...">
-</div>
+  <div class="preloader">
+    <img src="images/preloader.gif" alt="Loading...">
+  </div>
 </main>
+
+<div id="overlay"></div>
+<script>
+  setTimeout(() => {
+    const overlay = document.getElementById('overlay');
+    overlay.style.opacity = '1';
+    setTimeout(() => window.location.href = 'home.html', 180);
+  }, 1500);
+</script>
 </body>
 </html>
