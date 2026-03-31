@@ -28,10 +28,13 @@
 <span>edit ✏️</span>
 <span>🗑️</span>
 
-<div class="qty small">
-<span>−</span>
-<span>1</span>
-<span>+</span>
+<div class="quantity">
+  <button class="btn minus" type="button" aria-label="Decrease quantity"> - </button>
+  
+  <span class="value" id="qtyValue"> 1 </span>
+  
+  <button class="btn plus" type="button" aria-label="Increase quantity"> + </button>
+</div>
 </div>
 </div>
 </div>
@@ -112,5 +115,7 @@
 
 </nav>
 </main>
+
+<script src="postload.js"></script>
 </body>
 </html>
